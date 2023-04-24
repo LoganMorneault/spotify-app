@@ -1,0 +1,14 @@
+.user-image {
+    height: 30vw;
+    width: 30vw;
+    border-radius: 8px;
+}
+
+.album-artwork {
+    height: 64px;
+    width: 64px;
+    border-radius: 4px;
+
+    position: absolute;
+    top: 8px;
+}

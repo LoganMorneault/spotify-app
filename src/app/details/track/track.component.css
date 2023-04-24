@@ -1,0 +1,11 @@
+.album-artwork {
+    height: 384px;
+    width: 384px;
+    border-radius: 16px;
+}
+
+.centerFlex {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}

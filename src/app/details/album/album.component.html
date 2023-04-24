@@ -1,0 +1,50 @@
+<br>
+
+<div *ngIf="album">
+    <div class="container pb-4">
+        <div class="row">
+            <!-- Art + info -->
+            <div class="col-lg-4 col-md-4 col-sm-12 text-center pt-lg-5 pt-sm-3">
+                <img src="{{album.images[0].url}}" class="album-image">
+                <p class="fw-bold fs-4 mt-2 mb-1">{{album.name}}</p>
+                <p class="fs-5 mt-1 mb-1"><span (click)="goToArtist()">{{calculateArtists()}}</span> -
+                    {{calculateReleaseDate()}}</p>
+
+                <div *ngIf="currentUser">
+                    <button class="btn btn-outline-secondary btn-light mt-3" type="button"
+                        (click)="onSaveButtonClick(album)" style="width:50%">{{ isLiked ? 'Unsave' : 'Save'}}</button>
+                </div>
+            </div>
+
+            <!-- Tracks -->
+            <div class="col col-md-8 col-lg-8 col-sm-12">
+                <ul class="list-group list-group-light mt-4">
+                    <ng-template ngFor let-item [ngForOf]="tracks" let-i="index">
+                        <li class="list-group-item">
+
+                            <div style="position: relative;">
+                                <div class="ms-2">
+                                    <p class="pt-2 mb-0 fw-bold fs-6"><span
+                                            (click)="goToTrack(item)">{{item.name}}</span><span class="fw-normal fs-8"
+                                            (click)="goToArtist()"> -
+                                            {{calculateTrackInfo(item)}}</span></p>
+                                </div>
+                            </div>
+                        </li>
+                    </ng-template>
+                </ul>
+            </div>
+        </div>
+
+        <br>
+        <hr>
+        <br>
+
+        <div class="centerFlex">
+            <iframe style="border-radius:12px" [src]="calculatePlayerSrc() | safe:'resourceUrl'" width="80%"
+                height="352" frameBorder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+            </iframe>
+        </div>
+    </div>
+</div>

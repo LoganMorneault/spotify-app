@@ -1,0 +1,12 @@
+.horizontal {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap:wrap;
+}
+
+
+.album-artwork {
+    height: 128px;
+    width: 128px;
+    border-radius: 4px;
+}

@@ -1,0 +1,43 @@
+<br>
+
+<div *ngIf="user">
+    <div class="container pb-4">
+        <div class="row">
+            <div class="col col-6 text-center">
+                <br>
+                <div *ngIf="user.images.length > 0">
+                    <img src="{{user.images[0].url}}" class="user-image" />
+                </div>
+                <p class="fw-bold fs-4 mt-2 mb-1">{{user.display_name}}<span class="fw-normal fs-6"> -
+                        {{user.followers.total}} followers</span></p>
+
+                <div *ngIf="currentUser">
+                    <button class="btn btn-outline-secondary btn-light mt-3" type="button"
+                        (click)="onSaveButtonClick(user)" style="width:50%">{{ isFollowed ? 'Unfollow' :
+                        'Follow'}}</button>
+                </div>
+            </div>
+
+
+            <div class="col col-6">
+                <br>
+                <p class="fw-bold fs-4 mt-2">Playlists</p>
+                <ul class="list-group list-group-light">
+                    <ng-template ngFor let-item [ngForOf]="playlists" let-i="index">
+                        <li class="list-group-item" (click)="goToPlaylist(item)">
+                            <div style="position: relative;">
+                                <div *ngIf="item.images[0]">
+                                    <img src="{{item.images[0].url}}" class="album-artwork" />
+                                </div>
+                                <div style="margin-left: 75px;">
+                                    <p class="pt-3 mb-0 fw-bold fs-5">{{calculateTrackName(item.name)}}</p>
+                                    <p class="mb-1">{{decodeHtml(item.description)}} Public Playlist</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ng-template>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,69 @@
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+
+            <!-- Title + refresh button -->
+            <div style="position: relative;" class="pb-3">
+                <p style="position: absolute" class="fw-bold fs-5">{{ currentUser ? 'Personalized Recommendations' :
+                    'Recommended Tracks'}}</p>
+                <button style="position: absolute; right: 0px;" class="btn btn-sm btn-dark"
+                    (click)="currentUser ? getUserRecommendations() : getDefaultRecommendations()">Refresh</button>
+            </div>
+
+            <!-- Recommended tracks -->
+            <ul class="list-group list-group-light mt-4">
+                <ng-template ngFor let-item [ngForOf]="recommendations" let-i="index">
+                    <li class="list-group-item">
+
+                        <div style="position: relative;">
+                            <img src="{{item.album.images[0].url}}" class="album-artwork" (click)="goToTrack(item)" />
+
+                            <div style="margin-left: 75px;">
+                                <p class="pt-3 mb-0 fw-bold fs-5" (click)="goToTrack(item)">
+                                    {{calculateTrackName(item.name)}}</p>
+                                <p class="mb-1"><span (click)="goToArtist(item)">{{calculateArtists(item)}}</span> -
+                                    <span (click)="goToAlbum(item)">{{item.album.name}}</span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ng-template>
+            </ul>
+
+            <br>
+            <br>
+        </div>
+
+        <div class="col">
+
+            <!-- Title + refresh button -->
+            <div style="position: relative;" class="pb-3">
+                <p style="position: absolute" class="fw-bold fs-5">{{ currentUser ? 'Your Playlists' :
+                    'Featured Playlists'}}</p>
+                <button style="position: absolute; right: 0px;" class="btn btn-sm btn-dark"
+                    (click)="currentUser ? getUserPlaylists() : getFeaturedPlaylists()">Refresh</button>
+            </div>
+
+            <!-- Playlists -->
+            <ul class="list-group list-group-light mt-4">
+                <ng-template ngFor let-item [ngForOf]="playlists" let-i="index">
+                    <li class="list-group-item" (click)="goToPlaylist(item)">
+                        <div style="position: relative;">
+                            <img src="{{item.images[0].url}}" class="album-artwork" />
+
+                            <div style="margin-left: 75px;">
+                                <p class="pt-3 mb-0 fw-bold fs-5">{{calculateTrackName(item.name)}}</p>
+                                <p class="mb-1">{{decodeHtml(item.description)}}</p>
+                            </div>
+                        </div>
+                    </li>
+                </ng-template>
+            </ul>
+
+            <br>
+            <br>
+        </div>
+    </div>
+</div>

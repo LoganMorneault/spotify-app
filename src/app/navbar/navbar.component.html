@@ -1,0 +1,32 @@
+<div class="toolbar">
+    <div class="left-align-header ms-3">
+        <a class="logo" routerLink="/home">BANGER ALERT!!!</a>
+    </div>
+
+
+    <div class="right-align-header me-3">
+        <!-- Search bar -->
+        <div class="input-group me-4">
+            <input #searchInput type="text" class="form-control" placeholder="Search..."
+                aria-describedby="button-addon2" (keyup.enter)="onSearchButtonClick()">
+            <button class="btn btn-outline-secondary btn-light btn-sm" type="button"
+                (click)="onSearchButtonClick()">Search</button>
+        </div>
+
+        <div *ngIf="user; then thenBlock else elseBlock"></div>
+        <ng-template #thenBlock>
+            <button class="btn btn-light btn-md me-4" style="width:175px;" (click)="onMyProfileClick()">My
+                profile</button>
+
+            <div *ngIf="userroles?.isAdmin">
+                <button class="btn btn-light btn-md me-4" style="width:100px;" (click)="onAdminClick()">Admin</button>
+            </div>
+
+            <button class="btn btn-light btn-md" style="width:175px;" (click)="onLogOutClick()">Log Out</button>
+
+        </ng-template>
+        <ng-template #elseBlock>
+            <button class="btn btn-light btn-md" style="width:100px;" (click)="onLoginClick()">Log in!</button>
+        </ng-template>
+    </div>
+</div>

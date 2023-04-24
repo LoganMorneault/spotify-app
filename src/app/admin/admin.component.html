@@ -1,0 +1,24 @@
+<div class="container mt-4">
+    <p class="fw-bold fs-4">User Roles</p>
+
+    <ul class="list-group list-group-light mt-3">
+        <ng-template ngFor let-item [ngForOf]="userroles" let-i="index">
+            <li class="list-group-item">
+                <p><span class="fw-bold">{{item.uid}}</span> - Admin?: {{item.isAdmin}} - PlaylistCreator?:
+                    {{item.isPlaylistCreator}}</p>
+                <button class="btn btn-sm btn-dark" (click)="toggleAdmin(item)">Toggle Admin</button>
+                <button class="btn btn-sm btn-dark ms-2" (click)="togglePC(item)">Toggle Playlist Creator</button>
+                <!-- Need a make PC, make Admin -->
+            </li>
+        </ng-template>
+    </ul>
+
+    <div class="centerFlex">
+        <div class="input-group mt-4" style="width:50%">
+            <input #uidInput type="text" class="form-control" placeholder="UID..." aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary btn-light btn-sm" type="button" (click)="onAddUserClick()">Add User
+                with UID</button>
+        </div>
+    </div>
+
+</div>

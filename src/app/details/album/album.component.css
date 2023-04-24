@@ -1,0 +1,10 @@
+.album-image {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.centerFlex {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}

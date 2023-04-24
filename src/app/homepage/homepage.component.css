@@ -1,0 +1,8 @@
+.album-artwork {
+    height: 64px;
+    width: 64px;
+    border-radius: 4px;
+
+    position: absolute;
+    top: 8px;
+}

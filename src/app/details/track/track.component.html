@@ -1,0 +1,26 @@
+<div *ngIf="track">
+
+    <br>
+    <br>
+
+    <div class="container">
+        <div class="row text-center centerFlex">
+            <img src="{{track.album.images[0].url}}" class="album-artwork" (click)="goToAlbum()" />
+            <div class="mb-4">
+                <p class="pt-2 mb-0 fw-bold">{{track.name}}</p>
+                <p class="mb-1"><span (click)="goToArtist()">{{calculateArtists()}}</span> - <span
+                        (click)="goToAlbum()">{{track.album.name}}</span></p>
+            </div>
+
+            <iframe style="border-radius:12px" [src]="getIframeSrc() | safe:'resourceUrl'" width="50%" height="80"
+                frameBorder="0" allowfullscreen="false" loading="lazy" style="max-width:75%"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+            </iframe>
+
+            <div *ngIf="currentUser">
+                <button class="btn btn-outline-secondary btn-light mt-3" type="button"
+                    (click)="onSaveButtonClick(track)" style="width:50%">{{ isLiked ? 'Unsave' : 'Save'}}</button>
+            </div>
+        </div>
+    </div>
+</div>

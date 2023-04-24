@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    <div *ngIf="playlist">
+
+        <div *ngIf="playlist.images.length > 0">
+            <div class="row centerFlex mb-4">
+                <img src="{{playlist.images[0].url}}" class="playlist-thumbnail">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-3">
+                <p>Name</p>
+            </div>
+            <div class="col-9">
+                <input #nameInput type="text" class="form-control" [placeholder]="playlist.name" aria-describedby="button-addon2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <p>Description</p>
+            </div>
+            <div class="col-9">
+                <input #descInput type="text" class="form-control" [placeholder]="decodeHtml(playlist.description)"
+                    aria-describedby="button-addon2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <p>Public?</p>
+            </div>
+            <div class="col-9">
+                <input #isPublicInput type="checkbox" [placeholder]="playlist.isPublic" aria-describedby="button-addon2">
+            </div>
+        </div>
+
+        <div class="row centerFlex mt-0">
+            <button class="btn btn-outline-secondary btn-light mt-3" type="button" style="width:30%" (click)="updatePlaylist()">Make Changes</button>
+        </div>
+    </div>
+</div>

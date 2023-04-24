@@ -1,0 +1,57 @@
+<p class="pt-3 mb-0 fw-bold fs-5">Albums</p>
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let item of albums">
+            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 text-center" (click)="onAlbumClick(item)">
+                <div *ngIf="item.images.length > 0">
+                    <img src="{{item.images[0].url}}" class="album-artwork" />
+                </div>
+                <p>{{item.name}}</p>
+            </div>
+        </ng-container>
+    </div>
+</div>
+
+
+<p class="pt-3 mb-0 fw-bold fs-5">Artists</p>
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let item of artists">
+            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 text-center"  (click)="onArtistClick(item)">
+                <div *ngIf="item.images.length > 0">
+                    <img src="{{item.images[0].url}}" class="album-artwork" />
+                </div>
+                <p>{{item.name}}</p>
+            </div>
+        </ng-container>
+    </div>
+</div>
+
+
+<p class="pt-3 mb-0 fw-bold fs-5">Playlists</p>
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let item of playlists">
+            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 text-center" (click)="onPlaylistClick(item)">
+                <div *ngIf="item.images.length > 0">
+                    <img src="{{item.images[0].url}}" class="album-artwork" />
+                </div>
+                <p>{{item.name}}</p>
+            </div>
+        </ng-container>
+    </div>
+</div>
+
+<p class="pt-3 mb-0 fw-bold fs-5">Tracks</p>
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let item of tracks">
+            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 text-center" (click)="onTrackClick(item)">
+                <div *ngIf="item.album.images.length > 0">
+                    <img src="{{item.album.images[0].url}}" class="album-artwork" />
+                </div>
+                <p>{{item.name}}</p>
+            </div>
+        </ng-container>
+    </div>
+</div>

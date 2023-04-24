@@ -1,0 +1,11 @@
+.playlist-thumbnail {
+    height: 384px;
+    width: 384px;
+    border-radius: 10px;
+}
+
+.centerFlex {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
